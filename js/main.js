@@ -10,7 +10,7 @@
             return`<div class="milestone border-b">
             <div class="flex">
             <div class="checkbox"><input type="checkbox" /></div>
-            <div onclick="openMilestone(this)">
+            <div onclick="openMilestone(this ,${milestones._id})">
                 <p>
                 ${milestones.name}
                 <span><i class="fas fa-chevron-down"></i></span>
@@ -32,7 +32,7 @@
 
     }).join("")}`
     }
-    function openMilestone(milestonElements){
+    function openMilestone(milestonElements , id){
         // catugh the parent node and beside the nextelementsibling to div 
         const curentPanel = milestonElements.parentNode.nextElementSibling; 
         //select to show class   
@@ -53,6 +53,13 @@
 
         //toggole curent clicked one and show 
         curentPanel.classList.toggle("show")
+
+        showMilestones(id)
+    }
+
+    function showMilestones(id){
+        const milestonesImage = document.querySelector(".milestoneImage")
+        milestonesImage.src = mailestonesData[id].image;
     }
 
     loadMailestones();
