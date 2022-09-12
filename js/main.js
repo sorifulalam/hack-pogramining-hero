@@ -55,11 +55,17 @@
         curentPanel.classList.toggle("show")
 
         showMilestones(id)
+        
     }
 
     function showMilestones(id){
         const milestonesImage = document.querySelector(".milestoneImage")
         milestonesImage.src = mailestonesData[id].image;
+        const titleStore = document.querySelector('.title')
+        titleStore.innerText = mailestonesData[id].name;
+        const description = document.querySelector('.details')
+        description.innerText = mailestonesData[id].description;
+        
     }
 
     loadMailestones();
