@@ -9,8 +9,8 @@
     milestones.innerHTML = `${mailestonesData.map(function(milestones){
             return`<div class="milestone border-b">
             <div class="flex">
-            <div class="checkbox"><input type="checkbox" /></div>
-            <div onclick="openMilestone(this ,${milestones._id})">
+            <div id="checkboxx" onclick="myFunction()" class="checkbox"><input type="checkbox" /></div>
+            <div id="check" onclick="openMilestone(this ,${milestones._id})">
                 <p>
                 ${milestones.name}
                 <span><i class="fas fa-chevron-down"></i></span>
@@ -66,6 +66,16 @@
         const description = document.querySelector('.details')
         description.innerText = mailestonesData[id].description;
         
+    }
+
+    function myFunction(){
+        const checkd = document.getElementById("checkboxx")
+        const check = document.getElementById("check")
+        if(checkd == check){
+          true
+        }else{
+            false
+        }
     }
 
     loadMailestones();
