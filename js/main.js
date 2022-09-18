@@ -7,10 +7,10 @@
         const milestones = document.querySelector(".milestones");
 
     milestones.innerHTML = `${mailestonesData.map(function(milestones){
-            return`<div class="milestone border-b">
+            return`<div class="milestone border-b " id="${milestones._id}">
             <div class="flex">
-            <div id="checkboxx" onclick="myFunction()" class="checkbox"><input type="checkbox" /></div>
-            <div id="check" onclick="openMilestone(this ,${milestones._id})">
+            <div   class="checkbox"><input  type="checkbox" onclick="markMilestones(this ,${milestones._id})" /></div>
+            <div  onclick="openMilestone(this ,${milestones._id})">
                 <p>
                 ${milestones.name}
                 <span><i class="fas fa-chevron-down"></i></span>
@@ -68,14 +68,22 @@
         
     }
 
-    function myFunction(){
-        const checkd = document.getElementById("checkboxx")
-        const check = document.getElementById("check")
-        if(checkd == check){
-          true
+    function markMilestones(checkbox,id ){
+        const doneList = document.querySelector(".doneList")
+        const milestoneList = document.querySelector(".milestones")
+        const item = document.getElementById(id)
+        if(checkbox.checked){
+            milestoneList.removeChild(item)
+            doneList.appendChild(item)
+            true
         }else{
-            false
+            milestoneList.appendChild(item)
+            doneList.removeChild(item)
+            milestoneList.sort("${milestones._id}")
+            
+            
         }
     }
+    
 
     loadMailestones();
