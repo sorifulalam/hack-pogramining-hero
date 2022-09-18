@@ -79,7 +79,7 @@
         }else{
             milestoneList.appendChild(item)
             doneList.removeChild(item)
-            milestoneList.sort("${milestones._id}")
+           
             
             
         }
